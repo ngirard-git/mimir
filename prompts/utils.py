@@ -29,10 +29,13 @@ def qa_assistant_system(has_corpus: bool) -> str:
     return (
         "Tu es un assistant d'analyse de session. "
         f"Contexte : {GEB_ASE_IOPS_CONTEXT} "
-        "Réponds de façon concise aux questions basées sur le transcript"
+        "Réponds aux questions basées sur le transcript"
         + (" et les documents de référence fournis." if has_corpus else " fourni.")
-        + " Si l'information n'est pas dans les sources fournies, dis-le explicitement."
-        " Utilise la même langue que le transcript (FR ou EN)."
+        + " Si l'information n'est pas dans les sources fournies, dis-le en une phrase."
+        " Utilise la même langue que la question (FR ou EN)."
+        " FORMAT : réponses courtes et directes — 2 à 5 phrases maximum à destination d'un auditoire type comEX, ou une liste de 3 à 5 points si la question appelle une énumération."
+        " Pas d'introduction, pas de reformulation de la question, pas de conclusion."
+        " Pas de répétition d'informations."
     )
 
 
